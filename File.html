@@ -156,7 +156,7 @@
         const duration = (Date.now() - start) / 1000;
         const sizeMB = blob.size / (1024 * 1024);
         let speedMbps = (sizeMB * 8) / duration;
-        let speedKbps = speedMbps * 100000;
+        let speedKbps = speedMbps * 100;
         secondCounter++;
         updateGauge(speedKbps);
         updateChart(secondCounter, speedKbps);
@@ -190,13 +190,13 @@
         await measurePing();
         await measureSpeed();
 
-        if ((Date.now() - startTime) >= 30000) {
+        if ((Date.now() - startTime) >= 10000) {
           running = false;
           testBtn.textContent = "▶ Mulai Tes";
           evaluateNetworkQuality();
         }
 
-        await new Promise(r => setTimeout(r, 100));
+        await new Promise(r => setTimeout(r, 1000));
       }
     }
 
