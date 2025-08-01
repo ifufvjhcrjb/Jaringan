@@ -156,7 +156,7 @@
         const duration = (Date.now() - start) / 1000;
         const sizeMB = blob.size / (1024 * 1024);
         let speedMbps = (sizeMB * 8) / duration;
-        let speedKbps = speedMbps * 100;
+        let speedKbps = speedMbps * 100000;
         secondCounter++;
         updateGauge(speedKbps);
         updateChart(secondCounter, speedKbps);
