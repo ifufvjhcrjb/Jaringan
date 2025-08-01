@@ -125,7 +125,7 @@
 
     function updateGauge(speedKbps) {
       const maxKbps = 200000;
-      const degree = Math.min(speedKbps, maxKbps) / maxKbps * 180;
+      const degree = Math.min(speedKbps, maxKbps) / maxKbps * 360;
       needle.style.transform = `rotate(${degree}deg)`;
       speedText.textContent = speedKbps.toFixed(0);
     }
@@ -196,7 +196,7 @@
           evaluateNetworkQuality();
         }
 
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 10));
       }
     }
 
